@@ -7,9 +7,9 @@ interface Props {
   product: Product;
 }
 
-export default function ProductCard({ product }: Props) {
+const ProductCard = ({ product }: Props) => {
   return (
-    <Link href={`/products/${product._id}`}>
+    <Link href={`/products/${product._id}`} className="product-card">
       <div className="product-card_img-container">
         <Image
           src={product.image}
@@ -20,13 +20,14 @@ export default function ProductCard({ product }: Props) {
         />
       </div>
 
-      <div className="flex flex-col gap-3 ">
+      <div className="flex flex-col gap-3">
         <h3 className="product-title">{product.title}</h3>
 
         <div className="flex justify-between">
-          <p className="text-black opacity-50 capitalize text-lg">
+          <p className="text-black opacity-50 text-lg capitalize">
             {product.category}
           </p>
+
           <p className="text-black text-lg font-semibold">
             <span>{product?.currency}</span>
             <span>{product?.currentPrice}</span>
@@ -35,4 +36,6 @@ export default function ProductCard({ product }: Props) {
       </div>
     </Link>
   );
-}
+};
+
+export default ProductCard;

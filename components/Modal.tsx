@@ -3,7 +3,6 @@
 import { FormEvent, Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import Image from "next/image";
-import { addUserEmailToProduct } from "@/lib/actions";
 
 interface Props {
   productId: string;
@@ -18,7 +17,7 @@ const Modal = ({ productId }: Props) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    await addUserEmailToProduct(productId, email);
+    // await addUserEmailToProduct(productId, email);
 
     setIsSubmitting(false);
     setEmail("");
@@ -47,7 +46,7 @@ const Modal = ({ productId }: Props) => {
               leaveFrom="opacity-100"
               leaveTo="opacity-0"
             >
-              <Dialog.Overlay className="fixed inset-0" />
+              <div className="fixed inset-0 bg-black bg-opacity-25" />
             </Transition.Child>
 
             <span
